@@ -8,7 +8,11 @@ export default class Filter extends Component {
 
   getFilterValues = () => {
     return this.state.filterOptions.map(option => {
-      return < option key={Math.floor(Math.random() * 1000000)} value={ option }>{ option }</ option >
+      return < option key={Math.floor(Math.random() * 1000000)}
+                      value={ option }
+                      >
+                      { option }
+              </ option >
     })
   }
 

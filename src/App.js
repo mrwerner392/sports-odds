@@ -15,8 +15,8 @@ class App extends Component {
   }
 
   handleFilter = evt => {
-    const slug = evt.target.value.toLowerCase()
-    fetch(`https://app.oddsapi.io/api/v1/odds?sport=${slug}&apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93`)
+    const slug = evt.target.value
+    fetch(`https://app.oddsapi.io/api/v1/odds?sport=${slug.toLowerCase()}&apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93`)
     .then(res => res.json())
     .then(data => {
       // console.log(data.slice(0, 2));

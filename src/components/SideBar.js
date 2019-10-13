@@ -8,7 +8,7 @@ export default class SideBar extends Component {
     return (
       < div className='side-bar' >
         < Favorites />
-        < Filter handleFilter={ this.props.handleFilter }/>
+        < Filter filter={ this.props.filter } handleFilter={ this.props.handleFilter }/>
       </ div >
     )
   }
