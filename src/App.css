@@ -1,22 +1,83 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 10% 10% 80%;
+  grid-template-areas:
+    'title-bar title-bar'
+    'side-bar odds-header'
+    'side-bar odds-container';
 }
 
-.App-logo {
-  height: 40vmin;
+.title-bar {
+  grid-area: title-bar;
+  background-color: lime;
+  /* text-align: center; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.side-bar {
+  grid-area: side-bar;
+  background-color: pink;
+  text-align: center;
+  /* display: flex; */
+}
+
+.odds-header {
+  grid-area: odds-header;
+  background-color: yellow;
+}
+
+.odds-container {
+  grid-area: odds-container;
+  background-color: lightblue;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: row wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.favorites {
+  width: 15vw;
+  min-height: 15vw;
+  display: inline-block;
+  margin-top: 10%;
+  background-color: grey;
+}
+
+.filter {
+  width: 15vw;
+  min-height: 15vw;
+  display: inline-block;
+  margin-top: 5%;
+  background-color: grey;
+}
+
+.odds-card {
+  display: inline-block;
+  background-color: orange;
+  width: 20vw;
+  height: 20vw;
+  margin: 2%;
+}
+
+.league-header {
+  padding: none;
+  margin: 1% 0 1% 0;
+}
+
+.away-team {
+  margin-bottom: 1%;
+}
+
+.home-team {
+  margin-top: 1%;
+}
+
+.versus {
+  margin: 0;
+}
+
+.odds {
+  margin: 0;
 }
