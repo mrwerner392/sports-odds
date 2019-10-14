@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Filter extends Component {
+export default class SportFilter extends Component {
 
   state = {
     filterOptions: []
@@ -33,11 +33,11 @@ export default class Filter extends Component {
   }
 
   render() {
-    // console.log(this.props);
+    console.log(this.props);
     return (
-      < div className='filter'>
-        < h4 >< label htmlFor='filter' >Filter by Sport: < /label ></ h4 >
-        < select value={ this.props.filter } onChange={ this.props.handleFilter }>
+      < div className='filter sport-filter'>
+        < h4 >< label htmlFor='sport-filter' >Filter by Sport: < /label ></ h4 >
+        < select value={ this.props.sportFilter } onChange={ this.props.handleSportFilter }>
           { this.getFilterValues() }
         </ select >
       </ div >

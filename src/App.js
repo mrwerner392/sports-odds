@@ -10,28 +10,28 @@ export default class App extends Component {
   state = {
     odds: [],
     favorites: [],
-    filter: ""
+    sportFilter: ""
   }
 
-  handleFilter = evt => {
-    const filter = evt.target.value;
-    const slug = filter.split(' ').join('-').toLowerCase();
-    this.fetchByFilter(filter, slug);
+  handleSportFilter = evt => {
+    const sportFilter = evt.target.value;
+    const slug = sportFilter.split(' ').join('-').toLowerCase();
+    this.fetchBySportFilter(sportFilter, slug);
   }
 
   handleClickFavorite = evt => {
-    const filter = evt.target.id;
-    const slug = filter.split(' ').join('-').toLowerCase();
-    this.fetchByFilter(filter, slug);
+    const sportFilter = evt.target.id;
+    const slug = sportFilter.split(' ').join('-').toLowerCase();
+    this.fetchBySportFilter(sportFilter, slug);
   }
 
   handleAddFavorite = () => {
     this.setState({
-      favorites: [...this.state.favorites, this.state.filter]
+      favorites: [...this.state.favorites, this.state.sportFilter]
     })
   }
 
-  fetchByFilter = (filter, slug) => {
+  fetchBySportFilter = (sportFilter, slug) => {
     fetch(`https://app.oddsapi.io/api/v1/odds?sport=${slug}&apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93`)
     .then(res => res.json())
     .then(data => {
@@ -40,7 +40,7 @@ export default class App extends Component {
       // console.log(slug);
       this.setState({
         odds,
-        filter
+        sportFilter
       });
     });
   }
@@ -63,10 +63,10 @@ export default class App extends Component {
       < div className="App" >
         < TitleBar />
         < SideBar favorites={ this.state.favorites }
-                  filter={ this.state.filter }
-                  handleFilter={ this.handleFilter }
+                  sportFilter={ this.state.sportFilter }
+                  handleSportFilter={ this.handleSportFilter }
                   handleClickFavorite={ this.handleClickFavorite }/>
-        < OddsHeader filter={ this.state.filter } handleAddFavorite={ this.handleAddFavorite }/>
+        < OddsHeader sportFilter={ this.state.sportFilter } handleAddFavorite={ this.handleAddFavorite }/>
         < OddsContainer odds={ this.state.odds }/>
       </ div >
     );

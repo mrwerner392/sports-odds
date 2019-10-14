@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Favorites from './Favorites';
-import Filter from './Filter';
+import SportFilter from './SportFilter';
 
 export default class SideBar extends Component {
 
@@ -9,7 +9,7 @@ export default class SideBar extends Component {
       < div className='side-bar' >
         < Favorites favorites={ this.props.favorites }
                     handleClickFavorite={ this.props.handleClickFavorite }/>
-        < Filter filter={ this.props.filter } handleFilter={ this.props.handleFilter }/>
+        < SportFilter sportFilter={ this.props.sportFilter } handleSportFilter={ this.props.handleSportFilter }/>
       </ div >
     )
   }

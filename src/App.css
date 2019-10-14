@@ -13,8 +13,15 @@
 
 .title-bar {
   grid-area: title-bar;
-  background-color: lime;
-  /* text-align: center; */
+  /* background-color: lime; */
+  text-align: left;
+}
+
+.title {
+  font-size: 3vw;
+  padding-left: 3%;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
 }
 
 .side-bar {
@@ -27,6 +34,7 @@
 .odds-header {
   grid-area: odds-header;
   background-color: yellow;
+  /* font-size: 80%; */
 }
 
 .odds-container {
@@ -59,32 +67,40 @@
   background-color: orange;
   width: 20vw;
   height: 20vw;
-  margin: 2%;
+  margin: 4% 3% 0% 3%;
 }
 
 .league-header {
   padding: none;
-  margin: 1% 0 1% 0;
+  margin: 3% 0 1% 0;
+  font-size: 2vw;
 }
 
 .away-team {
   margin-bottom: 1%;
+  font-size: 1.8vw;
 }
 
 .home-team {
   margin-top: 1%;
+  font-size: 1.8vw;
 }
 
 .versus {
   margin: 0;
+  font-size: 1.5vw;
 }
 
 .odds {
   margin: 0;
+  font-size: 1.5vw;
 }
 
 .odds-sport-label {
   display: inline;
   float: left;
   padding-left: 2vw;
+  font-size: 3vw;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
