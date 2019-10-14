@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import TitleBar from './components/TitleBar';
 import SideBar from './components/SideBar';
@@ -30,11 +29,17 @@ class App extends Component {
     });
   }
 
+  handleAddFavorite = () => {
+    this.setState({
+      favorites: [...this.state.favorites, this.state.filter]
+    }, () => console.log(this.state.favorites))
+  }
+
   componentDidMount() {
     fetch('https://app.oddsapi.io/api/v1/odds?apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93')
     .then(res => res.json())
     .then(data => {
-      console.log(data.slice(0, 6));
+      // console.log(data.slice(0, 6));
       const odds = data.slice(0, 50);
       this.setState({
         odds
@@ -56,7 +61,7 @@ class App extends Component {
         < SideBar favorites={ this.state.favorites }
                   filter={ this.state.filter }
                   handleFilter={ this.handleFilter }/>
-        < OddsHeader filter={ this.state.filter }/>
+        < OddsHeader filter={ this.state.filter } handleAddFavorite={ this.handleAddFavorite }/>
         < OddsContainer odds={ this.state.odds }/>
       </ div >
     );
