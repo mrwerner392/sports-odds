@@ -21,7 +21,7 @@ export default class LeagueFilter extends Component {
     return (
       < React.Fragment >
         < label >{'Filter ' + this.props.sportFilter + ' by League:'}</ label >
-        < select onChange={ this.props.handleLeagueFilter }>
+        < select value={ this.props.leagueFilter } onChange={ this.props.handleLeagueFilter } >
           { this.getFilterValues() }
         </ select >
       </ React.Fragment >

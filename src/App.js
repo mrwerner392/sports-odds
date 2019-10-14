@@ -9,8 +9,7 @@ export default class App extends Component {
   state = {
     odds: [],
     favorites: [],
-    sportFilter: '',
-    leagueFilter: ''
+    sportFilter: ''
   }
 
   handleSportFilter = evt => {
@@ -31,15 +30,15 @@ export default class App extends Component {
     })
   }
 
-  handleLeagueFilter = evt => {
-    // console.log(evt.target.value);
-    const leagueFilter = evt.target.value;
-    const odds = this.state.odds.filter(oddsObj => oddsObj.league.name === leagueFilter)
-    this.setState({
-      odds,
-      leagueFilter
-    })
-  }
+  // handleLeagueFilter = evt => {
+  //   // console.log(evt.target.value);
+  //   const leagueFilter = evt.target.value;
+  //   const odds = this.state.odds.filter(oddsObj => oddsObj.league.name === leagueFilter)
+  //   this.setState({
+  //     odds,
+  //     leagueFilter
+  //   })
+  // }
 
   fetchBySportFilter = (sportFilter, slug) => {
     fetch(`https://app.oddsapi.io/api/v1/odds?sport=${slug}&apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93`)
@@ -78,8 +77,7 @@ export default class App extends Component {
                   handleClickFavorite={ this.handleClickFavorite } />
         < OddsContainer odds={ this.state.odds }
                         sportFilter={ this.state.sportFilter }
-                        handleAddFavorite={ this.handleAddFavorite }
-                        handleLeagueFilter={ this.handleLeagueFilter }/>
+                        handleAddFavorite={ this.handleAddFavorite } />
       </ div >
     );
   }
