@@ -31,6 +31,10 @@ export default class App extends Component {
     })
   }
 
+  handleLeagueFilter = evt => {
+    console.log(evt.target.value)
+  }
+
   fetchBySportFilter = (sportFilter, slug) => {
     fetch(`https://app.oddsapi.io/api/v1/odds?sport=${slug}&apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93`)
     .then(res => res.json())
@@ -68,7 +72,8 @@ export default class App extends Component {
                   handleClickFavorite={ this.handleClickFavorite }/>
         < OddsHeader odds={ this.state.odds }
                      sportFilter={ this.state.sportFilter }
-                     handleAddFavorite={ this.handleAddFavorite }/>
+                     handleAddFavorite={ this.handleAddFavorite }
+                     handleLeagueFilter={ this.handleLeagueFilter }/>
         < OddsContainer odds={ this.state.odds }/>
       </ div >
     );

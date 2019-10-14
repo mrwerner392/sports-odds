@@ -12,7 +12,9 @@ export default class OddsContainer extends Component {
         { this.props.sportFilter.length ?
           < h2 className='odds-sport-label' >{ this.props.sportFilter + '  ' }< span >< button className='add-favorite' onClick={ this.props.handleAddFavorite }>Add to Favorites</ button ></ span ></ h2 > :
           < h2 className='odds-sport-label' >All Sports</ h2 > }
-        < LeagueFilter odds={ this.props.odds } sportFilter={ this.props.sportFilter }/>
+        < LeagueFilter odds={ this.props.odds }
+                       sportFilter={ this.props.sportFilter }
+                       handleLeagueFilter={ this.props.handleLeagueFilter }/>
         < TeamSearch />
       </ div >
     )

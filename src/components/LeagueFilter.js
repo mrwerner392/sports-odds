@@ -17,13 +17,15 @@ export default class LeagueFilter extends Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.props.sportFilter);
     return (
-      < select >
-        { this.getFilterValues() }
-      </ select >
+      < React.Fragment >
+        < label >{'Filter ' + this.props.sportFilter + ' by League:'}</ label >
+        < select onChange={ this.props.handleLeagueFilter }>
+          { this.getFilterValues() }
+        </ select >
+      </ React.Fragment >
     )
   }
 
 }
-// {'Filter ' + this.props.sportFilter + ' by League:'}
