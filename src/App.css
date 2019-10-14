@@ -33,9 +33,11 @@
 .odds-container {
   grid-area: odds-container;
   display: grid;
-  grid-template-columns: 100%; 
+  /* grid-template-columns: 100%; */
   grid-template-rows: 10% 90%;
-  grid-template-areas: 'odds-header odds-card-dislpay';
+  grid-template-areas:
+    'odds-header'
+    'odds-card-display';
   background-color: lightblue;
 }
 
@@ -51,6 +53,7 @@
   flex-flow: row wrap;
   justify-content: center;
   overflow: auto;
+  /* align-items: center; */
 }
 
 .favorites {

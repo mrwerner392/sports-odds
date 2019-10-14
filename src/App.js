@@ -59,8 +59,8 @@ export default class App extends Component {
     fetch('https://app.oddsapi.io/api/v1/odds?apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93')
     .then(res => res.json())
     .then(data => {
-      console.log(data.slice(0, 6));
-      const odds = data.slice(0, 50);
+      // console.log(data.slice(0, 6));
+      const odds = data.slice(0, 5);
       this.setState({
         odds
       });

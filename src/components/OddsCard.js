@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 export default class OddsCard extends Component {
 
   renderOdds = (event, sitesData) => {
+    // console.log(event, sitesData);
     const arrOfOdds = [];
     // console.log('trying to loop through odds');
     for (let site in sitesData) {
@@ -36,7 +37,7 @@ export default class OddsCard extends Component {
   }
 
   render() {
-    const {event, league, sites, sport} = this.props.odds;
+    const {event, league, sites} = this.props.odds;
     // console.log(event, league, sites, sport);
     return (
       < div className='odds-card'>

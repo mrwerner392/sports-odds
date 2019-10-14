@@ -6,7 +6,7 @@ export default class LeagueFilter extends Component {
     const leagues = this.props.odds.map(oddsObj => oddsObj.league.name)
     // console.log(leagues);
     const uniqueLeagues = leagues.filter((league, index) => leagues.indexOf(league) === index)
-    console.log(uniqueLeagues);
+    // console.log(uniqueLeagues);
     return uniqueLeagues.map(option => {
       return < option key={Math.floor(Math.random() * 1000000000)}
                       value={ option }
@@ -17,7 +17,7 @@ export default class LeagueFilter extends Component {
   }
 
   render() {
-    console.log(this.props.sportFilter);
+    // console.log(this.props.sportFilter);
     return (
       < React.Fragment >
         < label >{'Filter ' + this.props.sportFilter + ' by League:'}</ label >

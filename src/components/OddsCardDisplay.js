@@ -12,10 +12,11 @@ export default class OddsCardDisplay extends Component {
   }
 
   render() {
+    // console.log(this.props.odds);
     return (
-      < React.Fragment >
+      < div className='odds-card-display'>
         { this.renderOddsCards() }
-      </ React.Fragment >
+      </ div >
     )
   }
 
