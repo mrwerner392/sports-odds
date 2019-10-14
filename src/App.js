@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import TitleBar from './components/TitleBar';
 import SideBar from './components/SideBar';
-import OddsHeader from './components/OddsHeader'
 import OddsContainer from './components/OddsContainer';
 
 export default class App extends Component {
@@ -76,12 +75,11 @@ export default class App extends Component {
         < SideBar favorites={ this.state.favorites }
                   sportFilter={ this.state.sportFilter }
                   handleSportFilter={ this.handleSportFilter }
-                  handleClickFavorite={ this.handleClickFavorite }/>
-        < OddsHeader odds={ this.state.odds }
-                     sportFilter={ this.state.sportFilter }
-                     handleAddFavorite={ this.handleAddFavorite }
-                     handleLeagueFilter={ this.handleLeagueFilter }/>
-        < OddsContainer odds={ this.state.odds }/>
+                  handleClickFavorite={ this.handleClickFavorite } />
+        < OddsContainer odds={ this.state.odds }
+                        sportFilter={ this.state.sportFilter }
+                        handleAddFavorite={ this.handleAddFavorite }
+                        handleLeagueFilter={ this.handleLeagueFilter }/>
       </ div >
     );
   }

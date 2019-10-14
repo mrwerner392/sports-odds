@@ -4,10 +4,9 @@
   width: 100vw;
   display: grid;
   grid-template-columns: 20% 80%;
-  grid-template-rows: 10% 10% 80%;
+  grid-template-rows: 10% 90%;
   grid-template-areas:
     'title-bar title-bar'
-    'side-bar odds-header'
     'side-bar odds-container';
 }
 
@@ -31,15 +30,23 @@
   /* display: flex; */
 }
 
+.odds-container {
+  grid-area: odds-container;
+  display: grid;
+  grid-template-columns: 100%; 
+  grid-template-rows: 10% 90%;
+  grid-template-areas: 'odds-header odds-card-dislpay';
+  background-color: lightblue;
+}
+
 .odds-header {
   grid-area: odds-header;
   background-color: yellow;
   /* font-size: 80%; */
 }
 
-.odds-container {
-  grid-area: odds-container;
-  background-color: lightblue;
+.odds-cards-display {
+  grid-area: odds-card-display;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
