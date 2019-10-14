@@ -6,7 +6,7 @@ export default class TitleBar extends Component {
   render() {
     return (
       < div className='title-bar' >
-        "TitleBar"
+        < h1 >Sports Odds</ h1 >
       </ div >
     )
   }

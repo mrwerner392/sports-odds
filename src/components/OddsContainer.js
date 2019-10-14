@@ -7,7 +7,7 @@ export default class OddsContainer extends Component {
     // console.log("trying to render a card");
     return this.props.odds.map(odds => {
       // console.log(odds);
-      return < OddsCard key={Math.floor(Math.random() * 1000000)} odds={odds} />
+      return < OddsCard key={Math.floor(Math.random() * 1000000000)} odds={odds} />
     })
   }
 

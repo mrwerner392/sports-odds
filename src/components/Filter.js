@@ -8,7 +8,7 @@ export default class Filter extends Component {
 
   getFilterValues = () => {
     return this.state.filterOptions.map(option => {
-      return < option key={Math.floor(Math.random() * 1000000)}
+      return < option key={Math.floor(Math.random() * 1000000000)}
                       value={ option }
                       >
                       { option }
@@ -36,7 +36,7 @@ export default class Filter extends Component {
     // console.log(this.props);
     return (
       < div className='filter'>
-        < label htmlFor='filter' >Filter by Sport: < /label >
+        < h4 >< label htmlFor='filter' >Filter by Sport: < /label ></ h4 >
         < select value={ this.props.filter } onChange={ this.props.handleFilter }>
           { this.getFilterValues() }
         </ select >
