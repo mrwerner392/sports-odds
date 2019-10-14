@@ -11,19 +11,21 @@ class App extends Component {
   state = {
     odds: [],
     favorites: [],
-    filter: ''
+    filter: ""
   }
 
   handleFilter = evt => {
-    const slug = evt.target.value
-    fetch(`https://app.oddsapi.io/api/v1/odds?sport=${slug.toLowerCase()}&apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93`)
+    const filter = evt.target.value;
+    const slug = filter.split(' ').join('-').toLowerCase();
+    fetch(`https://app.oddsapi.io/api/v1/odds?sport=${slug}&apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93`)
     .then(res => res.json())
     .then(data => {
-      // console.log(data.slice(0, 2));
-      const odds = data.slice(0, 5);
+      // console.log(data.slice(0, 5));
+      const odds = data;
+      // console.log(slug);
       this.setState({
         odds,
-        filter: slug
+        filter
       });
     });
   }
@@ -32,8 +34,8 @@ class App extends Component {
     fetch('https://app.oddsapi.io/api/v1/odds?apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93')
     .then(res => res.json())
     .then(data => {
-      // console.log(data.slice(0, 2));
-      const odds = data.slice(0, 5);
+      console.log(data.slice(0, 6));
+      const odds = data.slice(0, 50);
       this.setState({
         odds
       });

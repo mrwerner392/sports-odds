@@ -16,12 +16,11 @@ export default class OddsCard extends Component {
         const oddsForThisListing = oddsTypes.map(type => {
           switch (type) {
             case '1':
-              return < p key={Math.floor(Math.random() * 100000)} className="odds">{ event.home + ' win: ' + sitesData[site][listing].odds[type] }</ p >;
+              return < p key={Math.floor(Math.random() * 1000000)} className="odds">{ event.home + ' win: ' + sitesData[site][listing].odds[type] }</ p >;
             case '2':
-              return < p key={Math.floor(Math.random() * 100000)} className="odds">{ event.away + ' win: ' + sitesData[site][listing].odds[type] }</ p >;
+              return < p key={Math.floor(Math.random() * 1000000)} className="odds">{ event.away + ' win: ' + sitesData[site][listing].odds[type] }</ p >;
             case 'X':
-              return < p key={Math.floor(Math.random() * 100000)} className="odds">{ 'Ends in a draw: ' + sitesData[site][listing].odds[type] }</ p >;
-              break;
+              return < p key={Math.floor(Math.random() * 1000000)} className="odds">{ 'Ends in a draw: ' + sitesData[site][listing].odds[type] }</ p >;
             default:
               break;
           }

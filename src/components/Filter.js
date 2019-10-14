@@ -17,10 +17,11 @@ export default class Filter extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       < div className='filter'>
         < label htmlFor='filter' >Filter by Sport: < /label >
-        < select onChange={ this.props.handleFilter }>
+        < select value={ this.props.filter } onChange={ this.props.handleFilter }>
           { this.getFilterValues() }
         </ select >
       </ div >
