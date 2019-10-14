@@ -16,7 +16,7 @@ export default class OddsContainer extends Component {
                        sportFilter={ this.props.sportFilter }
                        leagueFilter={ this.props.leagueFilter }
                        handleLeagueFilter={ this.props.handleLeagueFilter }/>
-        < TeamSearch />
+        < TeamSearch handleTeamSearch={ this.props.handleTeamSearch }/>
       </ div >
     )
   }

@@ -13,9 +13,14 @@ export default class TeamSearch extends Component {
     })
   }
 
+  handleFormSubmit = evt => {
+    evt.preventDefault();
+    this.props.handleTeamSearch(evt.target.team.value)
+  }
+
   render() {
     return (
-      < form >
+      < form onSubmit={ this.handleFormSubmit } >
         < label htmlFor='team'>Search for Team: </ label >
         < input name='team'
                 id='team'

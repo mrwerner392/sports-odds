@@ -6,7 +6,8 @@ export default class OddsContainer extends Component {
 
   state = {
     odds: null,
-    leagueFilter: ''
+    leagueFilter: '',
+    teamSearch: ''
   }
   // renderOddsCards = () => {
   //   // console.log("trying to render a card");
@@ -27,6 +28,22 @@ export default class OddsContainer extends Component {
     })
   }
 
+  handleTeamSearch = teamSearch => {
+    const searchString = teamSearch.toLowerCase();
+    // console.log(this.props.odds);
+    const odds = this.props.odds.filter(oddsObj => {
+      const awayTeam = oddsObj.event.away;
+      const homeTeam = oddsObj.event.home;
+      // console.log(awayTeam, homeTeam);
+      return awayTeam.toLowerCase().includes(searchString) ||
+              homeTeam.toLowerCase().includes(searchString);
+    })
+    this.setState({
+      odds,
+      teamSearch
+    })
+  }
+
   render() {
     // console.log(this.props);
     return (
@@ -35,7 +52,8 @@ export default class OddsContainer extends Component {
                      sportFilter={ this.props.sportFilter }
                      leagueFilter={ this.state.leagueFilter }
                      handleAddFavorite={ this.props.handleAddFavorite }
-                     handleLeagueFilter={ this.handleLeagueFilter } />
+                     handleLeagueFilter={ this.handleLeagueFilter }
+                     handleTeamSearch={ this.handleTeamSearch } />
         < OddsCardDisplay odds={ this.state.odds || this.props.odds } />
       </ div >
     )
