@@ -10,6 +10,10 @@
     'side-bar odds-container';
 }
 
+ul {
+  list-style: none;
+}
+
 .title-bar {
   grid-area: title-bar;
   /* background-color: lime; */
@@ -44,7 +48,46 @@
 .odds-header {
   grid-area: odds-header;
   background-color: yellow;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: 'odds-sport-label filter-and-search'
   /* font-size: 80%; */
+}
+
+.odds-sport-label {
+  text-align: left;
+  grid-area: odds-sport-label;
+  /* display: inline; */
+  /* float: left; */
+  padding-left: 2vw;
+  font-size: 3vw;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.filter-and-search {
+  grid-area: filter-and-search;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-areas:
+    'league-filter'
+    'team-search';
+}
+
+.league-filter {
+  grid-area: league-filter;
+  text-align: left;
+}
+
+.team-search {
+  grid-area: team-search;
+  text-align: left;
+  overflow: auto;
+}
+
+label {
+  width: 15vw;
+  display: inline-block;
 }
 
 .odds-cards-display {
@@ -106,14 +149,6 @@
   font-size: 1.5vw;
 }
 
-.odds-sport-label {
-  display: inline;
-  float: left;
-  padding-left: 2vw;
-  font-size: 3vw;
-  margin-top: 2%;
-  margin-bottom: 2%;
-}
 
 input#team {
   width: 15vw;
@@ -121,6 +156,7 @@ input#team {
 
 .suggestions {
   width: 15vw;
+  padding-left: 15vw;
   list-style: none;
   text-align: left;
 }

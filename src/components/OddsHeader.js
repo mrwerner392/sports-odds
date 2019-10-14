@@ -20,12 +20,14 @@ export default class OddsHeader extends Component {
         { this.props.sportFilter.length ?
           < h2 className='odds-sport-label' >{ this.props.sportFilter + '  ' }< span >< button className='add-favorite' onClick={ this.props.handleAddFavorite }>Add to Favorites</ button ></ span ></ h2 > :
           < h2 className='odds-sport-label' >All Sports</ h2 > }
-        < LeagueFilter odds={ this.props.odds }
-                       sportFilter={ this.props.sportFilter }
-                       leagueFilter={ this.props.leagueFilter }
-                       handleLeagueFilter={ this.props.handleLeagueFilter } />
-        < TeamSearch handleTeamSearch={ this.props.handleTeamSearch }
-                     teams={ this.getTeams() } />
+        < div className='filter-and-search' >
+          < LeagueFilter odds={ this.props.odds }
+                         sportFilter={ this.props.sportFilter }
+                         leagueFilter={ this.props.leagueFilter }
+                         handleLeagueFilter={ this.props.handleLeagueFilter } />
+          < TeamSearch handleTeamSearch={ this.props.handleTeamSearch }
+                       teams={ this.getTeams() } />
+        </ div >
       </ div >
     )
   }

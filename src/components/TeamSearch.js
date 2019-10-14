@@ -113,7 +113,7 @@ export default class TeamSearch extends Component {
     } = this;
 
     return (
-      < form onSubmit={ this.handleFormSubmit } >
+      < form className='team-search' onSubmit={ this.handleFormSubmit } >
         < label htmlFor='team'>Search for Team: </ label >
         < input name='team'
                 id='team'
