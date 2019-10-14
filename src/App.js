@@ -10,7 +10,8 @@ export default class App extends Component {
   state = {
     odds: [],
     favorites: [],
-    sportFilter: ""
+    sportFilter: '',
+    leagueFilter: ''
   }
 
   handleSportFilter = evt => {
@@ -32,7 +33,13 @@ export default class App extends Component {
   }
 
   handleLeagueFilter = evt => {
-    console.log(evt.target.value)
+    // console.log(evt.target.value);
+    const leagueFilter = evt.target.value;
+    const odds = this.state.odds.filter(oddsObj => oddsObj.league.name === leagueFilter)
+    this.setState({
+      odds,
+      leagueFilter
+    })
   }
 
   fetchBySportFilter = (sportFilter, slug) => {
