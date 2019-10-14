@@ -6,9 +6,11 @@ export default class Favorites extends Component {
     console.log(this.props);
     return (
       < div className='favorites'>
-        < p >Favorites</ p >
+        < h4 >Favorites</ h4 >
         { this.props.favorites.map(favorite => {
-          return < li className='favorite' >
+          return < li id={ favorite }
+                      className='favorite'
+                      onClick={ this.props.handleClickFavorite }>
             { favorite }
           </ li >
         }) }

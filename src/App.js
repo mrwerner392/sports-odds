@@ -16,6 +16,33 @@ class App extends Component {
   handleFilter = evt => {
     const filter = evt.target.value;
     const slug = filter.split(' ').join('-').toLowerCase();
+    this.fetchByFilter(filter, slug);
+    // fetch(`https://app.oddsapi.io/api/v1/odds?sport=${slug}&apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93`)
+    // .then(res => res.json())
+    // .then(data => {
+    //   // console.log(data.slice(0, 5));
+    //   const odds = data;
+    //   // console.log(slug);
+    //   this.setState({
+    //     odds,
+    //     filter
+    //   });
+    // });
+  }
+
+  handleAddFavorite = () => {
+    this.setState({
+      favorites: [...this.state.favorites, this.state.filter]
+    })
+  }
+
+  handleClickFavorite = evt => {
+    const filter = evt.target.id;
+    const slug = filter.split(' ').join('-').toLowerCase();
+    this.fetchByFilter(filter, slug);
+  }
+
+  fetchByFilter = (filter, slug) => {
     fetch(`https://app.oddsapi.io/api/v1/odds?sport=${slug}&apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93`)
     .then(res => res.json())
     .then(data => {
@@ -27,12 +54,6 @@ class App extends Component {
         filter
       });
     });
-  }
-
-  handleAddFavorite = () => {
-    this.setState({
-      favorites: [...this.state.favorites, this.state.filter]
-    }, () => console.log(this.state.favorites))
   }
 
   componentDidMount() {
@@ -60,7 +81,8 @@ class App extends Component {
         < TitleBar />
         < SideBar favorites={ this.state.favorites }
                   filter={ this.state.filter }
-                  handleFilter={ this.handleFilter }/>
+                  handleFilter={ this.handleFilter }
+                  handleClickFavorite={ this.handleClickFavorite }/>
         < OddsHeader filter={ this.state.filter } handleAddFavorite={ this.handleAddFavorite }/>
         < OddsContainer odds={ this.state.odds }/>
       </ div >
