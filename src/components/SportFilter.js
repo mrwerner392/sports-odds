@@ -33,7 +33,7 @@ export default class SportFilter extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       < div className='filter sport-filter'>
         < h4 >< label htmlFor='sport-filter' >Filter by Sport: < /label ></ h4 >

@@ -49,7 +49,7 @@ export default class App extends Component {
     fetch('https://app.oddsapi.io/api/v1/odds?apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93')
     .then(res => res.json())
     .then(data => {
-      // console.log(data.slice(0, 6));
+      console.log(data.slice(0, 6));
       const odds = data.slice(0, 50);
       this.setState({
         odds
@@ -66,7 +66,9 @@ export default class App extends Component {
                   sportFilter={ this.state.sportFilter }
                   handleSportFilter={ this.handleSportFilter }
                   handleClickFavorite={ this.handleClickFavorite }/>
-        < OddsHeader sportFilter={ this.state.sportFilter } handleAddFavorite={ this.handleAddFavorite }/>
+        < OddsHeader odds={ this.state.odds }
+                     sportFilter={ this.state.sportFilter }
+                     handleAddFavorite={ this.handleAddFavorite }/>
         < OddsContainer odds={ this.state.odds }/>
       </ div >
     );
