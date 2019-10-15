@@ -25,8 +25,10 @@ export default class App extends Component {
   }
 
   handleAddFavorite = () => {
-    this.setState({
-      favorites: [...this.state.favorites, this.state.sportFilter]
+    this.setState(prevState => {
+      return {
+        favorites: [...prevState.favorites, prevState.sportFilter]
+      }
     })
   }
 
