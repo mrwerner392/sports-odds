@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
-export default class TitleBar extends Component {
+const TitleBar = () => {
 
-
-  render() {
-    return (
-      < div className='title-bar' >
-        < h1 className='title'>Sports Odds</ h1 >
-      </ div >
-    )
-  }
+  return (
+    < div className='title-bar' >
+      < h1 className='title'>Sports Odds</ h1 >
+    </ div >
+  )
 
 }
+
+export default TitleBar;
