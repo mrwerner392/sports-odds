@@ -42,24 +42,31 @@ export default class TeamSearch extends Component {
   };
 
   onClick = evt => {
+    // console.log(evt.currentTarget);
     this.setState({
       activeSuggestion: 0,
       filteredSuggestions: [],
       showSuggestions: false,
-      teamInput: evt.currentTarget.value
+      teamInput: evt.currentTarget.innerText
     })
   }
 
   onKeyDown = evt => {
     let { activeSuggestion, filteredSuggestions } = this.state;
+    console.log(evt.target);
+    // console.log(evt.currentTarget);
 
     if (evt.keyCode === 13) {
       this.setState({
         activeSuggestion: 0,
         showSuggestions: false,
-        userInput: filteredSuggestions[activeSuggestion],
+        teamInput: filteredSuggestions[activeSuggestion],
         filteredSuggestions: []
       });
+    } else if (evt.keyCode === 27) {
+      this.setState({
+        showSuggestions: false
+      })
     } else if (evt.keyCode === 38) {
       if (activeSuggestion !== 0) {
         activeSuggestion--;
@@ -82,7 +89,7 @@ export default class TeamSearch extends Component {
     const { state: {filteredSuggestions, activeSuggestion}, onClick } = this;
 
     return (
-      < ul className="suggestions" >
+      < ul className='suggestions' id='suggestions'>
         { filteredSuggestions.map((suggestion, index) => {
           let className = ['suggestion'];
 
@@ -90,17 +97,21 @@ export default class TeamSearch extends Component {
           if (index === activeSuggestion) {
             className.push('suggestion-active');
           };
+
+          {/*
           if (index === 0) {
             className.push('suggestion-first');
           };
           if (index === filteredSuggestions.length - 1) {
             className.push('suggestion-last');
           };
+          */}
 
           return (
             < li className={ className.join(' ') }
                  key={ suggestion }
-                 onClick={ onClick } >
+                 onClick={ onClick }
+                 >
               {suggestion}
             </ li >
           );
@@ -108,6 +119,12 @@ export default class TeamSearch extends Component {
       </ ul >
     )
   }
+
+  // componentDidUpdate() {
+  //   let suggestionList = document.querySelector('#suggestions')
+  //   console.log(suggestionList);
+  //   console.log(suggestionList.scrollHeight);
+  // }
 
   render() {
 
