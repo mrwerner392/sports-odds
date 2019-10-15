@@ -36,7 +36,7 @@ export default class SportFilter extends Component {
     // console.log(this.props);
     return (
       < div className='filter sport-filter'>
-        < h4 >< label htmlFor='sport-filter' >Filter by Sport: < /label ></ h4 >
+        < h4 >Filter by Sport: </ h4 >
         < select value={ this.props.sportFilter } onChange={ this.props.handleSportFilter }>
           { this.getFilterValues() }
         </ select >
