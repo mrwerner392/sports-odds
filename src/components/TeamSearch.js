@@ -51,7 +51,7 @@ export default class TeamSearch extends Component {
   }
 
   onKeyDown = evt => {
-    const { activeSuggestion, filteredSuggestions } = this.state;
+    let { activeSuggestion, filteredSuggestions } = this.state;
 
     if (evt.keyCode === 13) {
       this.setState({
@@ -78,22 +78,33 @@ export default class TeamSearch extends Component {
   };
 
   renderSuggestions = () => {
+
+    const { state: {filteredSuggestions, activeSuggestion}, onClick } = this;
+
     return (
       < ul className="suggestions" >
-        {this.state.filteredSuggestions.map((suggestion, index) => {
-          let className;
+        { filteredSuggestions.map((suggestion, index) => {
+          let className = ['suggestion'];
 
-          // Flag the active suggestion with a class
-          if (index === this.state.activeSuggestion) {
-            className = "suggestion-active";
-          }
+          // Flag the active, first, and last suggestion with a class
+          if (index === activeSuggestion) {
+            className.push('suggestion-active');
+          };
+          if (index === 0) {
+            className.push('suggestion-first');
+          };
+          if (index === filteredSuggestions.length - 1) {
+            className.push('suggestion-last');
+          };
 
           return (
-            < li className={className} key={suggestion} onClick={this.onClick} >
+            < li className={ className.join(' ') }
+                 key={ suggestion }
+                 onClick={ onClick } >
               {suggestion}
             </ li >
           );
-        })}
+        }) }
       </ ul >
     )
   }
@@ -102,15 +113,13 @@ export default class TeamSearch extends Component {
 
     // console.log(this.props.teams);
 
-    const {
-      handleInputChange,
-      onKeyDown,
-      renderSuggestions,
-      state: {
-        showSuggestions,
-        teamInput
-      }
-    } = this;
+    const { handleInputChange,
+            onKeyDown,
+            renderSuggestions,
+            state: {
+              showSuggestions,
+              teamInput
+            } } = this;
 
     return (
       < form className='team-search' onSubmit={ this.handleFormSubmit } >
@@ -118,6 +127,7 @@ export default class TeamSearch extends Component {
         < input name='team'
                 id='team'
                 type='text'
+                autoComplete="off"
                 value={ teamInput }
                 onChange={ handleInputChange }
                 onKeyDown={ onKeyDown } />

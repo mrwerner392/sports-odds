@@ -10,10 +10,6 @@
     'side-bar odds-container';
 }
 
-ul {
-  list-style: none;
-}
-
 .title-bar {
   grid-area: title-bar;
   /* background-color: lime; */
@@ -50,7 +46,8 @@ ul {
   background-color: yellow;
   display: grid;
   grid-template-columns: 50% 25% 25%;
-  grid-template-areas: 'odds-sport-label league-filter team-search'
+  grid-template-areas: 'odds-sport-label league-filter team-search';
+  z-index: 100
   /* font-size: 80%; */
 }
 
@@ -65,14 +62,14 @@ ul {
   margin-bottom: 2%;
 }
 
-.filter-and-search {
+/* .filter-and-search {
   grid-area: filter-and-search;
   display: grid;
   grid-template-rows: 50% 50%;
   grid-template-areas:
     'league-filter'
     'team-search';
-}
+} */
 
 .league-filter {
   grid-area: league-filter;
@@ -82,7 +79,7 @@ ul {
 .team-search {
   grid-area: team-search;
   text-align: left;
-  overflow: auto;
+  overflow: visible;
 }
 
 label {
@@ -155,9 +152,33 @@ input#team {
   width: 15vw;
 }
 
-.suggestions {
+ul.suggestions {
   width: 15vw;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
   padding-left: 15vw;
-  list-style: none;
   text-align: left;
+  /* z-index: 100; */
+  -webkit-padding-start: 0;
+}
+
+.suggestion {
+  padding: 0;
+  /* z-index: 100; */
+  background-color: white;
+  border-width: 0px 1px 0px 1px;
+  border-style: solid;
+}
+
+.suggestion-active {
+  background-color: lightblue;
+}
+
+.suggestion-first {
+  border-width: 1px 1px 0px 1px;
+}
+
+.suggestion-last {
+  border-width: 0px 1px 1px 1px;
 }
