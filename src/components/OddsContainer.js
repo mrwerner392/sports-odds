@@ -21,7 +21,7 @@ export default class OddsContainer extends Component {
     // console.log(evt.target.value);
     const leagueFilter = evt.target.value;
     const odds = this.props.odds.filter(oddsObj => oddsObj.league.name === leagueFilter);
-    console.log(leagueFilter, odds);
+    // console.log(leagueFilter, odds);
     this.setState({
       odds,
       leagueFilter

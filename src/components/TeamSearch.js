@@ -24,7 +24,7 @@ export default class TeamSearch extends Component {
   handleInputChange = evt => {
     const { teams } = this.props;
     const teamInput = evt.currentTarget.value;
-    console.log(teams);
+    // console.log(teams);
     // Filter our suggestions that don't contain the user's input
     let filteredSuggestions = [];
     let showSuggestions = false;
@@ -100,7 +100,7 @@ export default class TeamSearch extends Component {
 
   render() {
 
-    console.log(this.props.teams);
+    // console.log(this.props.teams);
 
     const {
       handleInputChange,
