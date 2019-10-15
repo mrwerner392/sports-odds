@@ -122,7 +122,7 @@ export default class TeamSearch extends Component {
                 onChange={ handleInputChange }
                 onKeyDown={ onKeyDown } />
         { showSuggestions ? renderSuggestions() : null }
-        < input type='submit' value='Search' />
+        { /*< input type='submit' value='Search' />*/ }
       </ form >
     )
   }

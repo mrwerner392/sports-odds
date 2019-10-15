@@ -49,8 +49,8 @@ ul {
   grid-area: odds-header;
   background-color: yellow;
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-areas: 'odds-sport-label filter-and-search'
+  grid-template-columns: 50% 25% 25%;
+  grid-template-areas: 'odds-sport-label league-filter team-search'
   /* font-size: 80%; */
 }
 
@@ -86,8 +86,9 @@ ul {
 }
 
 label {
-  width: 15vw;
-  display: inline-block;
+  /* width: 15vw; */
+  font-size: 1.1vw;
+  display: block;
 }
 
 .odds-cards-display {
