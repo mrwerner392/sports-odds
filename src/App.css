@@ -90,7 +90,7 @@ label {
   display: block;
 }
 
-.odds-cards-display {
+.odds-card-display {
   grid-area: odds-card-display;
   display: flex;
   flex-flow: row wrap;
