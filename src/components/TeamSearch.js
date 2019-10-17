@@ -109,6 +109,7 @@ export default class TeamSearch extends Component {
 
           return (
             < li className={ className.join(' ') }
+                 tabIndex={ '1' }
                  key={ suggestion }
                  onClick={ onClick }
                  >

@@ -8,6 +8,7 @@
   grid-template-areas:
     'title-bar title-bar'
     'side-bar odds-container';
+  /* overflow-x: hidden; */
 }
 
 .title-bar {
@@ -39,6 +40,7 @@
     'odds-header'
     'odds-card-display';
   background-color: lightblue;
+  /* overflow-y: hidden; */
 }
 
 .odds-header {
@@ -93,7 +95,7 @@ label {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  overflow: auto;
+  overflow-y: scroll;
   /* align-items: center; */
 }
 
@@ -115,6 +117,10 @@ label {
 
 .odds-card {
   display: inline-block;
+  overflow: hidden;
+  /* text-align: center; */
+  /* justify-content: center; */
+  /* align-items: center; */
   background-color: orange;
   width: 20vw;
   height: 20vw;
