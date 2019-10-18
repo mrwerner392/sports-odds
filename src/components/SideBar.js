@@ -8,9 +8,9 @@ const SideBar = props => {
 
   return (
     < div className='side-bar' >
+      < SportFilter sportFilter={ sportFilter } handleSportFilter={ handleSportFilter }/>
       < Favorites favorites={ favorites }
                   handleClickFavorite={ handleClickFavorite }/>
-      < SportFilter sportFilter={ sportFilter } handleSportFilter={ handleSportFilter }/>
     </ div >
   )
 

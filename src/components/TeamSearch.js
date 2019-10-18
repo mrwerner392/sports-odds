@@ -141,7 +141,7 @@ export default class TeamSearch extends Component {
 
     return (
       < form className='team-search' onSubmit={ this.handleFormSubmit } >
-        < label htmlFor='team'>Search for Team: </ label >
+        < label htmlFor='team'>Search for Team (or Player): </ label >
         < input name='team'
                 id='team'
                 type='text'

@@ -10,9 +10,13 @@ p:hover {
   cursor: pointer;
 }
 
+select {
+  width: 75%;
+}
+
 label {
   /* width: 15vw; */
-  font-size: 1.1vw;
+  font-size: 1.3vw;
   display: block;
 }
 
@@ -113,6 +117,7 @@ ul.suggestions {
 .league-filter {
   grid-area: league-filter;
   text-align: left;
+  align-items: center;
 }
 
 .team-search {

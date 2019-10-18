@@ -6,7 +6,7 @@ const Favorites = props => {
 
   return (
     < div className='favorites'>
-      < h4 >Favorites</ h4 >
+      < h4 >Favorite Sports</ h4 >
       { favorites ?
         favorites.map(favorite => {
         return < p key={ Math.floor(Math.random() * 1000000000) }
