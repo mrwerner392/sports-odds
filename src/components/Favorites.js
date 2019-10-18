@@ -9,12 +9,12 @@ const Favorites = props => {
       < h4 >Favorites</ h4 >
       { favorites ?
         favorites.map(favorite => {
-        return < li key={ Math.floor(Math.random() * 1000000000) }
+        return < p key={ Math.floor(Math.random() * 1000000000) }
                     id={ favorite }
                     className='favorite'
                     onClick={ handleClickFavorite }>
           { favorite }
-        </ li >
+        </ p >
         })
         : null
       }
