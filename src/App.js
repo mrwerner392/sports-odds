@@ -25,6 +25,16 @@ export default class App extends Component {
   }
 
   handleAddFavorite = () => {
+    if (localStorage.favorites) {
+      // console.log(localStorage.favorites);
+      const favorites = JSON.parse(localStorage.favorites)
+      favorites.push(this.state.sportFilter);
+      localStorage.favorites = JSON.stringify(favorites);
+    } else {
+      localStorage.favorites = JSON.stringify([this.state.sportFilter]);
+    };
+
+    // console.log(localStorage.favorites);
     this.setState(prevState => {
       return {
         favorites: [...prevState.favorites, prevState.sportFilter]
@@ -57,6 +67,13 @@ export default class App extends Component {
   }
 
   componentDidMount() {
+
+    if (localStorage.favorites) {
+      const favorites = JSON.parse(localStorage.favorites);
+      this.setState({
+        favorites
+      });
+    };
     fetch('https://app.oddsapi.io/api/v1/odds?apikey=27cfbf70-edea-11e9-9b0f-9d1c661c1a93')
     .then(res => res.json())
     .then(data => {

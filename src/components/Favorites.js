@@ -7,14 +7,17 @@ const Favorites = props => {
   return (
     < div className='favorites'>
       < h4 >Favorites</ h4 >
-      { favorites.map(favorite => {
+      { favorites ?
+        favorites.map(favorite => {
         return < li key={ Math.floor(Math.random() * 1000000000) }
                     id={ favorite }
                     className='favorite'
                     onClick={ handleClickFavorite }>
           { favorite }
         </ li >
-      }) }
+        })
+        : null
+      }
     </ div >
   )
 
