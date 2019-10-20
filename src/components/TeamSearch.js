@@ -73,6 +73,10 @@ export default class TeamSearch extends Component {
         this.setState({
           activeSuggestion
         });
+      } else {
+        this.setState({
+          showSuggestions: false
+        });
       };
     } else if (evt.keyCode === 40) {
       if (activeSuggestion !== filteredSuggestions.length - 1) {
