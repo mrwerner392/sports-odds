@@ -9,6 +9,8 @@ export default class TeamSearch extends Component {
     showSuggestions: false
   }
 
+  suggestionsBox = React.createRef();
+
   // handleInputChange = evt => {
   //   this.setState({
   //     teamInput: evt.target.value
@@ -90,52 +92,58 @@ export default class TeamSearch extends Component {
 
   renderSuggestions = () => {
 
-    const { state: {filteredSuggestions, activeSuggestion}, onClick } = this;
-
+    const { state: {filteredSuggestions, activeSuggestion}, suggestionsBox, onClick } = this;
+    console.log(suggestionsBox);
     return (
-      < ul className='suggestions' id='suggestions'>
-        { filteredSuggestions.map((suggestion, index) => {
-          let className = ['suggestion'];
+      < div className='suggestions-div' ref={ suggestionsBox } >
+        < ul className='suggestions' id='suggestions' >
+          { filteredSuggestions.map((suggestion, index) => {
+            let className = ['suggestion'];
 
-          // Flag the active, first, and last suggestion with a class
-          if (index === activeSuggestion) {
-            className.push('suggestion-active');
-          };
+            // Flag the active, first, and last suggestion with a class
+            if (index === activeSuggestion) {
+              className.push('suggestion-active');
+            };
 
-          {/*
-          if (index === 0) {
-            className.push('suggestion-first');
-          };
-          if (index === filteredSuggestions.length - 1) {
-            className.push('suggestion-last');
-          };
-          */}
+            {/*
+            if (index === 0) {
+              className.push('suggestion-first');
+            };
+            if (index === filteredSuggestions.length - 1) {
+              className.push('suggestion-last');
+            };
+            */}
 
-          return (
-            < li className={ className.join(' ') }
-                 tabIndex={ '1' }
-                 key={ suggestion }
-                 onClick={ onClick }
-                 >
-              {suggestion}
-            </ li >
-          );
-        }) }
-      </ ul >
+            return (
+              < li className={ className.join(' ') }
+                   tabIndex={ '1' }
+                   key={ suggestion }
+                   onClick={ onClick }
+                   >
+                {suggestion}
+              </ li >
+            );
+          }) }
+        </ ul >
+      </ div >
     )
   }
 
-  // componentDidUpdate() {
-  //   let suggestionList = document.querySelector('#suggestions')
-  //   console.log(suggestionList);
-  //   console.log(suggestionList.scrollHeight);
-  // }
+  componentDidUpdate() {
+    // console.log(this.state.activeSuggestion);
+    if (this.state.activeSuggestion >= 5) {
+      // console.log(this.suggestionsBox.current.scrollTop);
+      this.suggestionsBox.current.scrollTop = `${(this.state.activeSuggestion - 4) * 20}`
+      // console.log(this.suggestionsBox.current.scrollTop);
+    }
+  }
 
   render() {
 
     // console.log(this.props.teams);
 
     const { handleInputChange,
+            handleFormSubmit,
             onKeyDown,
             renderSuggestions,
             state: {
@@ -144,7 +152,7 @@ export default class TeamSearch extends Component {
             } } = this;
 
     return (
-      < form className='team-search' onSubmit={ this.handleFormSubmit } >
+      < form className='team-search' onSubmit={ handleFormSubmit } >
         < label htmlFor='team'>Search for Team (or Player): </ label >
         < input name='team'
                 id='team'
@@ -157,6 +165,7 @@ export default class TeamSearch extends Component {
         { /*< input type='submit' value='Search' />*/ }
       </ form >
     )
+
   }
 
 }
