@@ -71,6 +71,7 @@ export default class TeamSearch extends Component {
         showSuggestions: false
       })
     } else if (evt.keyCode === 38) {
+      evt.preventDefault();
       if (activeSuggestion !== 0) {
         activeSuggestion--;
         this.setState({
@@ -83,6 +84,7 @@ export default class TeamSearch extends Component {
         });
       };
     } else if (evt.keyCode === 40) {
+      evt.preventDefault();
       if (showSuggestions === false && filteredSuggestions.length) {
         this.setState({
           showSuggestions: true,
