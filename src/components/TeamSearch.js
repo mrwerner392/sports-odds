@@ -6,7 +6,8 @@ export default class TeamSearch extends Component {
     teamInput: '',
     activeSuggestion: 0,
     filteredSuggestions: [],
-    showSuggestions: false
+    showSuggestions: false,
+    suggestionsKeyHit: null,
   }
 
   suggestionsBox = React.createRef();
@@ -73,7 +74,8 @@ export default class TeamSearch extends Component {
       if (activeSuggestion !== 0) {
         activeSuggestion--;
         this.setState({
-          activeSuggestion
+          activeSuggestion,
+          suggestionsKeyHit: 'up'
         });
       } else {
         this.setState({
@@ -84,7 +86,8 @@ export default class TeamSearch extends Component {
       if (activeSuggestion !== filteredSuggestions.length - 1) {
         activeSuggestion++;
         this.setState({
-          activeSuggestion
+          activeSuggestion,
+          suggestionsKeyHit: 'down'
         });
       };
     };
@@ -131,10 +134,28 @@ export default class TeamSearch extends Component {
 
   componentDidUpdate() {
     // console.log(this.state.activeSuggestion);
-    if (this.state.activeSuggestion >= 5) {
+    const { state: {
+              activeSuggestion,
+              filteredSuggestions,
+              showSuggestions,
+              suggestionsKeyHit
+            },
+            suggestionsBox } = this;
+
+    console.log(suggestionsKeyHit);
+
+    if (showSuggestions === true) {
       // console.log(this.suggestionsBox.current.scrollTop);
-      this.suggestionsBox.current.scrollTop = `${(this.state.activeSuggestion - 4) * 20}`
-      // console.log(this.suggestionsBox.current.scrollTop);
+      if (suggestionsKeyHit === 'up'
+          && suggestionsBox.current.scrollTop > activeSuggestion * 20
+          && activeSuggestion < filteredSuggestions.length - 5 ) {
+        suggestionsBox.current.scrollTop -= 20;
+      }
+      else if (suggestionsKeyHit === 'down'
+                && suggestionsBox.current.scrollTop < (activeSuggestion - 4) * 20
+                && activeSuggestion > 4) {
+        suggestionsBox.current.scrollTop += 20
+      }
     }
   }
 
