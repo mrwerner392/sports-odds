@@ -55,7 +55,7 @@ export default class TeamSearch extends Component {
   }
 
   onKeyDown = evt => {
-    let { activeSuggestion, filteredSuggestions } = this.state;
+    let { activeSuggestion, filteredSuggestions, showSuggestions } = this.state;
     console.log(evt.target);
     // console.log(evt.currentTarget);
 
@@ -83,7 +83,11 @@ export default class TeamSearch extends Component {
         });
       };
     } else if (evt.keyCode === 40) {
-      if (activeSuggestion !== filteredSuggestions.length - 1) {
+      if (showSuggestions === false && filteredSuggestions.length) {
+        this.setState({
+          showSuggestions: true,
+        });
+      } else if (activeSuggestion !== filteredSuggestions.length - 1) {
         activeSuggestion++;
         this.setState({
           activeSuggestion,
@@ -91,6 +95,20 @@ export default class TeamSearch extends Component {
         });
       };
     };
+  };
+
+  onFocus = evt => {
+    if (this.state.filteredSuggestions.length) {
+      this.setState({
+        showSuggestions: true
+      });
+    };
+  };
+
+  onBlur = evt => {
+    this.setState({
+      showSuggestions: false
+    });
   };
 
   renderSuggestions = () => {
@@ -134,6 +152,7 @@ export default class TeamSearch extends Component {
 
   componentDidUpdate() {
     // console.log(this.state.activeSuggestion);
+    // console.log(this.state);
     const { state: {
               activeSuggestion,
               filteredSuggestions,
@@ -166,6 +185,8 @@ export default class TeamSearch extends Component {
     const { handleInputChange,
             handleFormSubmit,
             onKeyDown,
+            onFocus,
+            onBlur,
             renderSuggestions,
             state: {
               showSuggestions,
@@ -181,7 +202,9 @@ export default class TeamSearch extends Component {
                 autoComplete="off"
                 value={ teamInput }
                 onChange={ handleInputChange }
-                onKeyDown={ onKeyDown } />
+                onKeyDown={ onKeyDown }
+                onFocus={ onFocus }
+                onBlur= { onBlur } />
         { showSuggestions ? renderSuggestions() : null }
         { /*< input type='submit' value='Search' />*/ }
       </ form >
